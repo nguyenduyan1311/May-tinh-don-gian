@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table{
+        border: 1px solid black ;
+        text-align: center;
+    }
+</style>
+<body>
+<form >
+    <table>
+        <tr>
+            <td colspan="4"><input id="result"/> </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" id="1" onclick ="inputNumber(this)">1</button>
+            </td>
+            <td>
+                <button type="button" id="2" onclick ="inputNumber(this)">2</button>
+            </td>
+            <td>
+                <button type="button" id="3" onclick ="inputNumber(this)">3</button>
+            </td>
+            <td>
+                <button type="button" id="+" onclick ="inputOperation(this)">+</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" id="4" onclick ="inputNumber(this)">4</button>
+            </td>
+            <td>
+                <button type="button" id="5" onclick ="inputNumber(this)">5</button>
+            </td>
+            <td>
+                <button type="button" id="6" onclick ="inputNumber(this)">6</button>
+            </td>
+            <td>
+                <button type="button" id="-" onclick ="inputOperation(this)">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" id="7" onclick ="inputNumber(this)">7</button>
+            </td>
+            <td>
+                <button type="button" id="8" onclick ="inputNumber(this)">8</button>
+            </td>
+            <td>
+                <button type="button" id="9" onclick ="inputNumber(this)">9</button>
+            </td>
+            <td>
+                <button type="button" id="*" onclick ="inputOperation(this)">*</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" id="C" onclick ="clearAll()">C</button>
+            </td>
+            <td>
+                <button type="button" id="0" onclick ="inputNumber(this)">0</button>
+            </td>
+            <td>
+                <button type="button" id="=" onclick="getResult()" >=</button>
+            </td>
+            <td>
+                <button type="button" id="/" onclick ="inputOperation(this)">/</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<script>
+    function inputNumber(element) {
+        let data = element.innerHTML;
+        let oldData = document.getElementById("result").value;
+        let newData = oldData + data;
+        document.getElementById("result").value = newData;
+    }
+    function getResult() {
+        let result = document.getElementById("result").value;
+        let ketqua = eval(result);
+        document.getElementById("result").value = ketqua;
+    }
+    function clearAll() {
+        document.getElementById("result").value = "";
+    }
+    function inputOperation(element) {
+        let data = element.innerHTML;
+        let oldData = document.getElementById("result").value;
+        let charEnd = oldData[oldData.length -1];
+        if (charEnd =="/"){
+            alert("Nhập kí tự khác!")
+        }
+        else {
+            let newData = oldData + data;
+            document.getElementById("result").value = newData;
+        }
+    }
+</script>
+</body>
+</html>
